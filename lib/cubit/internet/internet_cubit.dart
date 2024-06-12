@@ -2,9 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:connectivity/connectivity.dart';
-import 'package:flutter/material.dart';
-
-import 'internet_state.dart';
 
 enum InternetCubitState{
   intial,lost,gained
