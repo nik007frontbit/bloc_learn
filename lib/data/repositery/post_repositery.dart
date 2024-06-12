@@ -28,14 +28,7 @@ class PostRepository {
         }
       ));
       var postMaps = response.data;
-      print(response);
-      print(postMaps);
-      print(postMaps);
-      print(postMaps);
-      print(postMaps);
-      print(postMaps);
-      print(postMaps);
-      print(postMaps);
+
     } catch (e) {
       throw e;
     }

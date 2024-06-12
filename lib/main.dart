@@ -6,10 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc/email_validat_bolc/email_validate_bloc.dart';
-import 'cubit/home_cubit.dart';
 
 void main() {
-  PostRepository postRepository=PostRepository();
+  PostRepository postRepository = PostRepository();
   postRepository.getPosts();
   runApp(const MyApp());
 }
@@ -26,46 +25,6 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: PostShow(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(),
-      child: Scaffold(
-        body: BlocListener<HomeCubit, int>(
-          listener: (context, state) {
-            // TODO: implement listener
-            if (state is HomeIncrement) {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text("data")));
-            }
-          },
-          child: Column(
-            children: [
-              Center(
-                child: BlocBuilder<HomeCubit, int>(
-                  builder: (context, state) => Text(
-                      "Count ${BlocProvider.of<HomeCubit>(context).state} "),
-                ),
-              )
-            ],
-          ),
-        ),
-        floatingActionButton: BlocBuilder<HomeCubit, int>(
-          builder: (context, state) {
-            return FloatingActionButton(
-                onPressed: () =>
-                    BlocProvider.of<HomeCubit>(context).increment(),
-                child: Icon(Icons.add));
-          },
-        ),
-      ),
     );
   }
 }
